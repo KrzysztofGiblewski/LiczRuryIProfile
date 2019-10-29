@@ -18,37 +18,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="długość porządanego odcinka" />
+            android:layout_height="83dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextDlugoscOdcinka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            <LinearLayout
+                android:layout_width="141dp"
+                android:layout_height="94dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="długość porządanego odcinka" />
+
+                <EditText
+                    android:id="@+id/editTextDlugoscRury"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="16dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00EE2B2B" />
+
+            <LinearLayout
+                android:layout_width="141dp"
+                android:layout_height="95dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="potrzebna ilość odcinków" />
+
+                <EditText
+                    android:id="@+id/editTextDlugoscOdcinka"
+                    android:layout_width="153dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="długość rury lub profila" />
-
-        <EditText
-            android:id="@+id/editTextDlugoscRury"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="potrzebna ilość odcinków" />
 
         <EditText
             android:id="@+id/editTextIleSztukTrzeba"
@@ -67,14 +93,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Otrzymana ilość rur lub profili" />
-
-        <EditText
-            android:id="@+id/editTextIleCalychRurTrzeba"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            android:text="Potrzebna ilość całych rur lub profili" />
 
         <TextView
             android:id="@+id/textView5"
@@ -82,12 +101,11 @@
             android:layout_height="wrap_content"
             android:text="długość odpadu z 1 rury" />
 
-        <EditText
-            android:id="@+id/editTextOdpadZRury"
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            android:text="długość odpadu z ostatniej rury" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
