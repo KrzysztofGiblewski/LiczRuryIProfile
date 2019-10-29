@@ -29,8 +29,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void licz() {
+
         EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscOdcinka);
-        pierwsza = Double.valueOf(DlugoscOdcinka.getText().toString());
+        EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscRury);
+
+        Double dlugoscOdcinka = Double.valueOf(DlugoscOdcinka.getText().toString());
+        Double dlugoscRury = Double.valueOf(DlugoscRury.getText().toString());
+
         wynik = String.valueOf(pierwsza);
     }
 }
