@@ -36,6 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Double dlugoscOdcinka = Double.valueOf(DlugoscOdcinka.getText().toString());
         Double dlugoscRury = Double.valueOf(DlugoscRury.getText().toString());
 
-        wynik = String.valueOf(pierwsza);
+        wynik = String.valueOf(dlugoscRury / dlugoscOdcinka);
     }
 }
