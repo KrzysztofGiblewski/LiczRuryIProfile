@@ -61,8 +61,7 @@
             android:id="@+id/buttonLiczIleRury"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:visibility="visible" />
+            android:text="Licz" />
 
         <TextView
             android:id="@+id/textView4"
