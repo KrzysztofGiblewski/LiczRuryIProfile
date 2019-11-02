@@ -33,18 +33,25 @@ public class MainActivity extends AppCompatActivity {
         EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscRury);
         EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscCalejRury);
         EditText IloscPotrzebna = (EditText) findViewById(R.id.editTextIleSztukTrzeba);
+
         TextView textView4 = (TextView) findViewById(R.id.textView4);
         TextView textView5 = (TextView) findViewById(R.id.textView5);
         TextView textView6 = (TextView) findViewById(R.id.textView6);
 
         Integer dlugoscOdcinka = Integer.valueOf(DlugoscOdcinka.getText().toString());
         Integer dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString());
-        Double potrzebnaIlosc, dlugoscOdpaduOst;
-        Integer iloscZCalej, dlugoscOdpadu;
+        Integer potrzebnaIlosc = Integer.valueOf(IloscPotrzebna.getText().toString());
+
+        Integer iloscZCalej, dlugoscOdpadu, iloscCalychRur;
 
         iloscZCalej = dlugoscRury / dlugoscOdcinka;
-        dlugoscOdpadu = dlugoscRury % dlugoscOdcinka;// dlugoscRury - (iloscZCalej * dlugoscOdcinka);
+        dlugoscOdpadu = dlugoscRury % dlugoscOdcinka;
+        iloscCalychRur = potrzebnaIlosc / iloscZCalej;
+        if (potrzebnaIlosc % iloscZCalej > 0)
+            iloscCalychRur++;
+        textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
         textView5.setText("z rury " + iloscZCalej.toString() + " odcinki i zostaje " + dlugoscOdpadu.toString() + " odpadu z kmarzdej rury");
+        textView6.setText("z ostatniej zostaje " + dlugoscOdpadu.toString());
         //   wynik = String.valueOf(iloscZCalej);
 
     }
