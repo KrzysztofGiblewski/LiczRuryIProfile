@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,23 +23,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 licz();
-                Toast.makeText(getApplicationContext(), wynik, Toast.LENGTH_LONG).show();
+                //    Toast.makeText(getApplicationContext(), wynik, Toast.LENGTH_LONG).show();
             }
         });
     }
 
     private void licz() {
 
-        EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscOdcinka);
-        EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscRury);
+        EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscRury);
+        EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscCalejRury);
+        EditText IloscPotrzebna = (EditText) findViewById(R.id.editTextIleSztukTrzeba);
         TextView textView4 = (TextView) findViewById(R.id.textView4);
-        Double dlugoscOdcinka = Double.valueOf(DlugoscOdcinka.getText().toString());
-        Double dlugoscRury = Double.valueOf(DlugoscRury.getText().toString());
-        Double potrzebnaIlosc, dlugoscOdpadu, dlugoscOdpaduOst, iloscZCalej;
-        iloscZCalej = dlugoscRury / dlugoscOdcinka;
-        dlugoscOdpadu = dlugoscRury - (iloscZCalej * dlugoscOdcinka);
+        TextView textView5 = (TextView) findViewById(R.id.textView5);
+        TextView textView6 = (TextView) findViewById(R.id.textView6);
 
-        wynik = String.valueOf(iloscZCalej);
+        Integer dlugoscOdcinka = Integer.valueOf(DlugoscOdcinka.getText().toString());
+        Integer dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString());
+        Double potrzebnaIlosc, dlugoscOdpaduOst;
+        Integer iloscZCalej, dlugoscOdpadu;
+
+        iloscZCalej = dlugoscRury / dlugoscOdcinka;
+        dlugoscOdpadu = dlugoscRury % dlugoscOdcinka;// dlugoscRury - (iloscZCalej * dlugoscOdcinka);
+        textView5.setText("z rury " + iloscZCalej.toString() + " odcinki i zostaje " + dlugoscOdpadu.toString() + " odpadu z kmarzdej rury");
+        //   wynik = String.valueOf(iloscZCalej);
 
     }
 

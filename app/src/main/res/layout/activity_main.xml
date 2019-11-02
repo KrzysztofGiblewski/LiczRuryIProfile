@@ -61,11 +61,12 @@
                     android:text="potrzebna ilość odcinków" />
 
                 <EditText
-                    android:id="@+id/editTextDlugoscOdcinka"
-                    android:layout_width="153dp"
+                    android:id="@+id/editTextIleSztukTrzeba"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -77,7 +78,7 @@
             android:text="długość rury lub profila" />
 
         <EditText
-            android:id="@+id/editTextIleSztukTrzeba"
+            android:id="@+id/editTextDlugoscCalejRury"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
