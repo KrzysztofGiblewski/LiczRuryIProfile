@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,10 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
         EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscOdcinka);
         EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscRury);
-
+        TextView textView4 = (TextView) findViewById(R.id.textView4);
         Double dlugoscOdcinka = Double.valueOf(DlugoscOdcinka.getText().toString());
         Double dlugoscRury = Double.valueOf(DlugoscRury.getText().toString());
+        Double potrzebnaIlosc, dlugoscOdpadu, dlugoscOdpaduOst, iloscZCalej;
+        iloscZCalej = dlugoscRury / dlugoscOdcinka;
+        dlugoscOdpadu = dlugoscRury - (iloscZCalej * dlugoscOdcinka);
 
-        wynik = String.valueOf(dlugoscRury / dlugoscOdcinka);
+        wynik = String.valueOf(iloscZCalej);
+
     }
+
 }
