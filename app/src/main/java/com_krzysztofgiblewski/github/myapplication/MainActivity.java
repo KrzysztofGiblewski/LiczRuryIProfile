@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Integer iloscOdcinkowZCalejRury;// ile wychodzi odcinków z całej rury
         Integer dlugoscOdpaduZJednejRury;// ile zostaje z rurki po odcieciu calych odcinków
         Integer iloscCalychRur;// ile potrzeba całych rur
-        Integer dlugoscOdpaduOstatniej;// pozostała długość z ostatniej rury
+        Integer dlugoscOdpaduOstatniej = 0;// pozostała długość z ostatniej rury
 
         Integer dlugoscOdcinka = Integer.valueOf(DlugoscOdcinka.getText().toString());
         Integer dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString());
@@ -46,50 +46,26 @@ public class MainActivity extends AppCompatActivity {
         if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
 
             iloscOdcinkowZCalejRury = dlugoscRury / dlugoscOdcinka; //tyle odcinków otzrymam z całej rury
-            dlugoscOdpaduZJednejRury = dlugoscRury - (dlugoscOdcinka * iloscOdcinkowZCalejRury);
+            dlugoscOdpaduZJednejRury = dlugoscRury - (iloscOdcinkowZCalejRury * dlugoscOdcinka);
             if (dlugoscOdpaduZJednejRury > 0) {
                 Integer temp = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury; //24 : 10 = 2
                 Integer temp2 = temp * iloscOdcinkowZCalejRury; //2 * 10 = 20
                 Integer temp3 = potrzebnaIloscOdcinkow - temp2; //24 - 20 =4
                 Integer temp4 = temp3 * dlugoscOdcinka; //4 * 100 = 400
                 dlugoscOdpaduOstatniej = dlugoscRury - temp4; //1000 - 400 = 600
-            } else dlugoscOdpaduOstatniej = 0;
-            if (dlugoscOdpaduOstatniej == dlugoscRury) {
-                dlugoscOdpaduOstatniej = 0;
             }
+
+
             iloscCalychRur = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury;
             if (potrzebnaIloscOdcinkow % iloscOdcinkowZCalejRury != 0) //jak reszta z dzielenia to znaczy że jeszce trzeba rurę napocząć
             {
                 iloscCalychRur++;
             }
 
-//            if (iloscOdcinkowZCalejRury > potrzebnaIloscOdcinkow) {      //jak mniej odcinków potrzeba niż mieści się w jednej rurze
-//                dlugoscOdpaduOstatniej = dlugoscRury - (dlugoscOdcinka * potrzebnaIloscOdcinkow);
-//                dlugoscOdpaduZJednejRury = dlugoscRury - (dlugoscOdcinka * potrzebnaIloscOdcinkow);
-//                iloscCalychRur = 1;
-//
-//            }
-//            if (iloscOdcinkowZCalejRury < potrzebnaIloscOdcinkow) {     //jak z jednej rury nie starcza
-//                Integer temp = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury; //24 : 10 = 2
-//                Integer temp2 = temp * iloscOdcinkowZCalejRury; //2 * 10 = 20
-//                Integer temp3 = potrzebnaIloscOdcinkow - temp2; //24 - 20 =4
-//                Integer temp4 = temp3 * dlugoscOdcinka; //4 * 100 = 400
-//                dlugoscOdpaduOstatniej = dlugoscRury - temp4; //1000 - 400 = 600
-//                iloscCalychRur = (iloscOdcinkowZCalejRury / potrzebnaIloscOdcinkow) + 1;
-//                dlugoscOdpaduZJednejRury = dlugoscRury - (dlugoscOdcinka * iloscOdcinkowZCalejRury);
-//
-//            } else { //gdy jest rowne to i odpad na zero
-//                dlugoscOdpaduZJednejRury = 999;
-//                dlugoscOdpaduOstatniej = 999;
-//                iloscCalychRur =999;
-//            }
-            ;
-
-
             textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
             textView5.setText("z rury " + iloscOdcinkowZCalejRury.toString() + " odcinków i zostaje " + dlugoscOdpaduZJednejRury.toString() + " odpadu z karzdej rury");
             if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) > dlugoscRury)
-            textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
+                textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
             if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) <= dlugoscRury)
                 textView6.setText(" :)");
         } else {
