@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         iloscZCalej = dlugoscRury / dlugoscOdcinka;
         //jak ilosc porzadanych odcinkow jest wieksza od jednej rury jak mniej i z jednej zostaje wiecej odpadu to else
-        if (iloscZCalej > potrzebnaIlosc) {
+        if ((iloscZCalej * potrzebnaIlosc) < dlugoscRury) {
             dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * iloscZCalej);
         } else {
             dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * potrzebnaIlosc);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         //gdy trzeba zaczać kolejną rurę
         if (potrzebnaIlosc % iloscZCalej > 0) {
             iloscCalychRur++;
-            dlugoscOdpaduOstatniej = (iloscCalychRur * dlugoscOdcinka * iloscZCalej) - (dlugoscOdcinka * potrzebnaIlosc);
+            dlugoscOdpaduOstatniej = (dlugoscOdcinka * potrzebnaIlosc) - (iloscCalychRur * dlugoscOdcinka * iloscZCalej);
         } else dlugoscOdpaduOstatniej = dlugoscOdpadu;
 
         textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
