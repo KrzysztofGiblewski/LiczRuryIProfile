@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Integer dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString());
         Integer potrzebnaIlosc = Integer.valueOf(IloscPotrzebna.getText().toString());
 
-        if (dlugoscOdcinka <= dlugoscRury) {
-
+        if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
 
             iloscZCalej = dlugoscRury / dlugoscOdcinka; //tyle odcinków otzrymam z całej rury
             //jak ilosc porzadanych odcinkow jest wieksza od jednej rury jak mniej i z jednej zostaje wiecej odpadu to else
@@ -55,16 +54,21 @@ public class MainActivity extends AppCompatActivity {
             }
             iloscCalychRur = potrzebnaIlosc / iloscZCalej;
             //gdy trzeba zaczać kolejną rurę (pozostałość z dzielenia większa od zera)
-            if (potrzebnaIlosc % iloscZCalej > 0) {
-                dlugoscOdpaduOstatniej = ((potrzebnaIlosc % iloscCalychRur) * dlugoscOdcinka) - dlugoscRury;//((dlugoscOdcinka * potrzebnaIlosc) - (iloscCalychRur * dlugoscOdcinka * iloscZCalej)) * -1; //mnoze przez -1 zeby zmienić znak na przeciwny
+            if ((potrzebnaIlosc % iloscZCalej) > 0) {
+                int temp = potrzebnaIlosc % iloscCalychRur;
+                int temp2 = (temp) * dlugoscOdcinka;
+                dlugoscOdpaduOstatniej = temp2 - dlugoscRury;
                 iloscCalychRur++; //dodaje rure tą którą musze napocząć
             } else dlugoscOdpaduOstatniej = dlugoscOdpadu;
 
             textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
             textView5.setText("z rury " + iloscZCalej.toString() + " odcinków i zostaje " + dlugoscOdpadu.toString() + " odpadu z karzdej rury");
-
             textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
-        } else textView4.setText("Cała rura musi być wieksza");
+        } else {
+            textView4.setText("Cała rura musi być wieksza");
+            textView5.setText("bo taki kawałek sie nie zmiesci");
+            textView6.setText(":)");
+        }
     }
 
 }
