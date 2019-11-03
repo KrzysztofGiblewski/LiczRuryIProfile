@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    double pierwsza;
-    String wynik = "jakiś tekst";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 licz();
-                //    Toast.makeText(getApplicationContext(), wynik, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -55,14 +51,13 @@ public class MainActivity extends AppCompatActivity {
         //gdy trzeba zaczać kolejną rurę
         if (potrzebnaIlosc % iloscZCalej > 0) {
             iloscCalychRur++;
-            dlugoscOdpaduOstatniej = (dlugoscOdcinka * potrzebnaIlosc) - (iloscCalychRur * dlugoscOdcinka * iloscZCalej);
+            dlugoscOdpaduOstatniej = ((dlugoscOdcinka * potrzebnaIlosc) - (iloscCalychRur * dlugoscOdcinka * iloscZCalej)) * -1; //mnoze przez -1 zeby zmienić znak na przeciwny
         } else dlugoscOdpaduOstatniej = dlugoscOdpadu;
 
         textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
         textView5.setText("z rury " + iloscZCalej.toString() + " odcinków i zostaje " + dlugoscOdpadu.toString() + " odpadu z kmarzdej rury");
 
         textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
-        //   wynik = String.valueOf(iloscZCalej);
 
     }
 
