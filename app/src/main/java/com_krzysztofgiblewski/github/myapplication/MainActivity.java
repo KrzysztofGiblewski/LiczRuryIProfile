@@ -42,16 +42,26 @@ public class MainActivity extends AppCompatActivity {
         Integer dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString());
         Integer potrzebnaIlosc = Integer.valueOf(IloscPotrzebna.getText().toString());
 
-        Integer iloscZCalej, dlugoscOdpadu, iloscCalychRur;
+        Integer iloscZCalej, dlugoscOdpadu, iloscCalychRur, dlugoscOdpaduOstatniej;
 
         iloscZCalej = dlugoscRury / dlugoscOdcinka;
-        dlugoscOdpadu = dlugoscRury % dlugoscOdcinka;
+        //jak ilosc porzadanych odcinkow jest wieksza od jednej rury jak mniej i z jednej zostaje wiecej odpadu to else
+        if (iloscZCalej > potrzebnaIlosc) {
+            dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * iloscZCalej);
+        } else {
+            dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * potrzebnaIlosc);
+        }
         iloscCalychRur = potrzebnaIlosc / iloscZCalej;
-        if (potrzebnaIlosc % iloscZCalej > 0)
+        //gdy trzeba zaczać kolejną rurę
+        if (potrzebnaIlosc % iloscZCalej > 0) {
             iloscCalychRur++;
+            dlugoscOdpaduOstatniej = (iloscCalychRur * dlugoscOdcinka * iloscZCalej) - (dlugoscOdcinka * potrzebnaIlosc);
+        } else dlugoscOdpaduOstatniej = dlugoscOdpadu;
+
         textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
-        textView5.setText("z rury " + iloscZCalej.toString() + " odcinki i zostaje " + dlugoscOdpadu.toString() + " odpadu z kmarzdej rury");
-        textView6.setText("z ostatniej zostaje " + dlugoscOdpadu.toString());
+        textView5.setText("z rury " + iloscZCalej.toString() + " odcinków i zostaje " + dlugoscOdpadu.toString() + " odpadu z kmarzdej rury");
+
+        textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
         //   wynik = String.valueOf(iloscZCalej);
 
     }
