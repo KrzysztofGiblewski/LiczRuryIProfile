@@ -46,20 +46,22 @@ public class MainActivity extends AppCompatActivity {
         if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
 
             iloscZCalej = dlugoscRury / dlugoscOdcinka; //tyle odcinków otzrymam z całej rury
-            //jak ilosc porzadanych odcinkow jest wieksza od jednej rury jak mniej i z jednej zostaje wiecej odpadu to else
-            if ((iloscZCalej * potrzebnaIlosc) < dlugoscRury) {
-                dlugoscOdpadu = dlugoscRury - dlugoscOdcinka;
-            } else {
-                dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * iloscZCalej);
-            }
             iloscCalychRur = potrzebnaIlosc / iloscZCalej;
-            //gdy trzeba zaczać kolejną rurę (pozostałość z dzielenia większa od zera)
-            if ((potrzebnaIlosc % iloscZCalej) > 0) {
-                int temp = potrzebnaIlosc % iloscCalychRur;
-                int temp2 = (temp) * dlugoscOdcinka;
-                dlugoscOdpaduOstatniej = temp2 - dlugoscRury;
-                iloscCalychRur++; //dodaje rure tą którą musze napocząć
-            } else dlugoscOdpaduOstatniej = dlugoscOdpadu;
+            //jak ilosc porzadanych odcinkow jest wieksza od jednej rury jak mniej i z jednej zostaje wiecej odpadu to else
+            if (iloscZCalej < potrzebnaIlosc) {
+                dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * iloscZCalej);
+                int temp = potrzebnaIlosc / iloscZCalej;
+                int temp2 = temp * iloscZCalej;
+                int temp3 = potrzebnaIlosc - temp2;
+                int temp4 = temp3 * dlugoscOdcinka;
+                dlugoscOdpaduOstatniej = dlugoscRury - temp4;
+                //       iloscCalychRur++; //dodaje rure tą którą musze napocząć
+            } else {
+                dlugoscOdpadu = dlugoscRury - (dlugoscOdcinka * potrzebnaIlosc);
+                dlugoscOdpaduOstatniej = dlugoscOdpadu;
+
+            }
+
 
             textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
             textView5.setText("z rury " + iloscZCalej.toString() + " odcinków i zostaje " + dlugoscOdpadu.toString() + " odpadu z karzdej rury");
