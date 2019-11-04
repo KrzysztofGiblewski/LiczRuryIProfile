@@ -51,20 +51,26 @@ public class MainActivity extends AppCompatActivity {
                 Integer temp = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury; //24 : 10 = 2
                 Integer temp2 = temp * iloscOdcinkowZCalejRury; //2 * 10 = 20
                 Integer temp3 = potrzebnaIloscOdcinkow - temp2; //24 - 20 =4
+                if (temp3 == 0) temp3 = 1;
                 Integer temp4 = temp3 * dlugoscOdcinka; //4 * 100 = 400
                 dlugoscOdpaduOstatniej = dlugoscRury - temp4; //1000 - 400 = 600
             }
 
 
             iloscCalychRur = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury;
-            if (potrzebnaIloscOdcinkow % iloscOdcinkowZCalejRury != 0) //jak reszta z dzielenia to znaczy że jeszce trzeba rurę napocząć
+            if (potrzebnaIloscOdcinkow % iloscOdcinkowZCalejRury > 0) //jak reszta z dzielenia to znaczy że jeszce trzeba rurę napocząć
             {
                 iloscCalychRur++;
+                Integer temp = potrzebnaIloscOdcinkow / iloscOdcinkowZCalejRury; //24 : 10 = 2
+                Integer temp2 = temp * iloscOdcinkowZCalejRury; //2 * 10 = 20
+                Integer temp3 = potrzebnaIloscOdcinkow - temp2; //24 - 20 =4
+                Integer temp4 = temp3 * dlugoscOdcinka; //4 * 100 = 400
+                dlugoscOdpaduOstatniej = dlugoscRury - temp4; //1000 - 400 = 600
             }
 
             textView4.setText("Całych rur potrzeba " + iloscCalychRur.toString());
             textView5.setText("z rury " + iloscOdcinkowZCalejRury.toString() + " odcinków i zostaje " + dlugoscOdpaduZJednejRury.toString() + " odpadu z karzdej rury");
-            if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) > dlugoscRury)
+            if (dlugoscOdpaduOstatniej < dlugoscRury)
                 textView6.setText("z ostatniej zostaje " + dlugoscOdpaduOstatniej.toString());
             if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) <= dlugoscRury)
                 textView6.setText(" :)");
