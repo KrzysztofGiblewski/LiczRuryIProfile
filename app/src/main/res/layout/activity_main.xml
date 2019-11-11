@@ -18,6 +18,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="długość całej rury lub profila którą będziemy ciąć na kawałki (w cm)" />
+
+        <EditText
+            android:id="@+id/editTextDlugoscCalejRury"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="83dp"
@@ -32,7 +45,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="długość porządanego odcinka" />
+                    android:text="jak długi kawałek chcemy (w cm)" />
 
                 <EditText
                     android:id="@+id/editTextDlugoscRury"
@@ -58,7 +71,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="potrzebna ilość odcinków" />
+                    android:text="potrzebna ilość kawałków w sztukach" />
 
                 <EditText
                     android:id="@+id/editTextIleSztukTrzeba"
@@ -71,19 +84,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="długość rury lub profila" />
-
-        <EditText
-            android:id="@+id/editTextDlugoscCalejRury"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
         <Button
             android:id="@+id/buttonLiczIleRury"
             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Potrzebna ilość całych rur lub profili" />
+            android:text="Potrzebną ilość całych rur lub profili" />
 
         <TextView
             android:id="@+id/textView5"
@@ -106,7 +106,7 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="długość odpadu z ostatniej rury" />
+            android:text="długość odpadu z ostatniej rury tej napoczętej (jeśli nie cała zurzyta)" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
