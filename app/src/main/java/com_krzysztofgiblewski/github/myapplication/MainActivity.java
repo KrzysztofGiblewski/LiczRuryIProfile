@@ -20,43 +20,59 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int dlugoscOdcinka = 0;
+                int dlugoscRury = 0;
+                int potrzebnaIloscOdcinkow = 0;
                 EditText DlugoscOdcinka = (EditText) findViewById(R.id.editTextDlugoscRury);
+                if (DlugoscOdcinka.getText() == null)
+                    DlugoscOdcinka.setText("0");
+                dlugoscOdcinka = Integer.valueOf(DlugoscOdcinka.getText().toString().trim());
                 EditText DlugoscRury = (EditText) findViewById(R.id.editTextDlugoscCalejRury);
+                if (DlugoscRury.getText() == null)
+                    DlugoscRury.setText("0");
+                dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString().trim());
                 EditText IloscPotrzebna = (EditText) findViewById(R.id.editTextIleSztukTrzeba);
+                if (IloscPotrzebna.getText() == null)
+                    IloscPotrzebna.setText("0");
+                potrzebnaIloscOdcinkow = Integer.valueOf(IloscPotrzebna.getText().toString().trim());
 
                 TextView textView4 = (TextView) findViewById(R.id.textView4);
                 TextView textView5 = (TextView) findViewById(R.id.textView5);
                 TextView textView6 = (TextView) findViewById(R.id.textView6);
 
-                int dlugoscOdcinka = Integer.valueOf(DlugoscOdcinka.getText().toString().trim());
-                int dlugoscRury = Integer.valueOf(DlugoscRury.getText().toString().trim());
-                int potrzebnaIloscOdcinkow = Integer.valueOf(IloscPotrzebna.getText().toString().trim());
 
-                Rury rury = new Rury();
-                rury.liczRure(dlugoscRury, dlugoscOdcinka, potrzebnaIloscOdcinkow);
-                // ile potrzeba całych rur
-                int iloscCalychRur = rury.iloscCalychRur; //wynik liczenia całych rór
-                int iloscOdcinkowZCalejRury = rury.iloscOdcinkowZCalejRury;// ile wychodzi odcinków z całej rury
-                int dlugoscOdpaduZJednejRury = rury.dlugoscOdpaduZJednejRury;// ile zostaje z rurki po odcieciu calych odcinków
-                int dlugoscOdpaduOstatniej = rury.dlugoscOdpaduOstatniej;// pozostała długość z ostatniej rury
+                if (dlugoscOdcinka > 0 && dlugoscRury > 0 && potrzebnaIloscOdcinkow > 0)
+                    if (dlugoscOdcinka < 99999 && dlugoscRury < 99999 && potrzebnaIloscOdcinkow < 9999) {
 
-                if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
-                    textView4.setText("Całych rur o długości " + dlugoscRury + " cm potrzeba " + iloscCalychRur + " sztuk");
-                    textView5.setText("z jednej rury wychodzi " + iloscOdcinkowZCalejRury + " kawałków i  "
-                            + dlugoscOdpaduZJednejRury + "cm odpadu z karzdej całej rury");
-                    if (dlugoscOdpaduOstatniej < dlugoscRury) {
-                        textView6.setText("z ostatniej napoczętej rury zostaje " + dlugoscOdpaduOstatniej + " cm");
+                        Rury rury = new Rury();
+                        rury.liczRure(dlugoscRury, dlugoscOdcinka, potrzebnaIloscOdcinkow);
+
+                        // ile potrzeba całych rur
+                        int iloscCalychRur = rury.iloscCalychRur; //wynik liczenia całych rór
+                        int iloscOdcinkowZCalejRury = rury.iloscOdcinkowZCalejRury;// ile wychodzi odcinków z całej rury
+                        int dlugoscOdpaduZJednejRury = rury.dlugoscOdpaduZJednejRury;// ile zostaje z rurki po odcieciu calych odcinków
+                        int dlugoscOdpaduOstatniej = rury.dlugoscOdpaduOstatniej;// pozostała długość z ostatniej rury
+
+                        if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
+                            textView4.setText("Całych rur o długości " + dlugoscRury + " cm potrzeba " + iloscCalychRur + " sztuk");
+                            textView5.setText("z jednej rury wychodzi " + iloscOdcinkowZCalejRury + " kawałków o długości "
+                                    + dlugoscOdcinka + "cm " + "i  " + dlugoscOdpaduZJednejRury + "cm odpadu z karzdej całej rury");
+
+                            if (dlugoscOdpaduOstatniej < dlugoscRury) {
+                                textView6.setText("z ostatniej rury dostajemy " + rury.iloscKawalkowZOstatniej + " kawałków a z napoczętej rury zostaje " + dlugoscOdpaduOstatniej + " cm");
+                            }
+                            if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) <= dlugoscRury) {
+                                textView6.setText(" :)");
+                            }
+                        } else {
+                            textView4.setText("Cała rura musi być wieksza");
+                            textView5.setText("bo taki kawałek sie nie zmiesci");
+                            textView6.setText(":)");
+                        }
                     }
-                    if ((potrzebnaIloscOdcinkow * dlugoscOdcinka) <= dlugoscRury) {
-                        textView6.setText(" :)");
-                    }
-                } else {
-                    textView4.setText("Cała rura musi być wieksza");
-                    textView5.setText("bo taki kawałek sie nie zmiesci");
-                    textView6.setText(":)");
-                }
-
             }
+
 
         });
     }

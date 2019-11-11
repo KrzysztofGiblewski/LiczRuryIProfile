@@ -5,6 +5,7 @@ public class Rury {
     int dlugoscOdpaduOstatniej = 0;
     int iloscOdcinkowZCalejRury = 0;
     int dlugoscOdpaduZJednejRury = 0;
+    int iloscKawalkowZOstatniej = 0;
 
     void liczRure(int całaRura, int potrzebnyKawalek, int iloscPotrzebnychKawalkow) {
 
@@ -16,8 +17,8 @@ public class Rury {
 
         if (iloscPotrzebnychKawalkow % iloscOdcinkowZCalejRury != 0) {
             iloscCalychRur++;
-            int temp3 = iloscPotrzebnychKawalkow % iloscOdcinkowZCalejRury;
-            int temp4 = temp3 * potrzebnyKawalek;
+            iloscKawalkowZOstatniej = iloscPotrzebnychKawalkow % iloscOdcinkowZCalejRury;
+            int temp4 = iloscKawalkowZOstatniej * potrzebnyKawalek;
 
             dlugoscOdpaduOstatniej = całaRura - temp4;
 

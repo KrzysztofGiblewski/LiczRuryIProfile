@@ -22,14 +22,19 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="długość całej rury lub profila którą będziemy ciąć na kawałki (w cm)" />
+            android:text="@string/calaRura"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editTextDlugoscCalejRury"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoText="true"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:text="600"
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,14 +50,18 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="jak długi kawałek chcemy (w cm)" />
+                    android:text="@string/kawalek" />
 
                 <EditText
                     android:id="@+id/editTextDlugoscRury"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoText="true"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="50"
+                    android:textSize="24sp" />
+
             </LinearLayout>
 
             <View
@@ -71,14 +80,17 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="potrzebna ilość kawałków w sztukach" />
+                    android:text="@string/sztuki" />
 
                 <EditText
                     android:id="@+id/editTextIleSztukTrzeba"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoText="true"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="11"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -89,6 +101,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Licz" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="679dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_begin="20dp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -109,4 +130,5 @@
             android:text="długość odpadu z ostatniej rury tej napoczętej (jeśli nie cała zurzyta)" />
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

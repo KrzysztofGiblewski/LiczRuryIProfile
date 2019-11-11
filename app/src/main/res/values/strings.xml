@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Licz rury i profile według Krzysztofa</string>
+    <string name="calaRura">długość całej rury lub profila którą będziemy ciąć na kawałki (w cm)</string>
+    <string name="kawalek">jak długi kawałek chcemy (w cm)</string>
+    <string name="sztuki">potrzebna ilość kawałków w sztukach</string>
 </resources>
