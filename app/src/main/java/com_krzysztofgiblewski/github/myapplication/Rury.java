@@ -1,9 +1,6 @@
 package com_krzysztofgiblewski.github.myapplication;
 
 public class Rury {
-    //    int całaRura;
-//    int potrzebnyKawalek;
-//    int iloscPotrzebnychKawalkow;
     int iloscCalychRur = 0;
     int dlugoscOdpaduOstatniej = 0;
     int iloscOdcinkowZCalejRury = 0;
