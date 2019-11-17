@@ -7,14 +7,16 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/glowne"
         android:layout_width="312dp"
         android:layout_height="679dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="32dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -128,6 +130,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="długość odpadu z ostatniej rury tej napoczętej (jeśli nie cała zurzyta)" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="68dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/dodaj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dodaj cale rury" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="200" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:text="krzysztofgiblewski@gmail.com" />
 
     </LinearLayout>
 
