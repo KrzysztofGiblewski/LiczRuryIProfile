@@ -136,16 +136,25 @@
             android:layout_height="33dp" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/wynikSumyCalych"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0" />
+            android:text="0"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/wynikSumaWszystkich"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            tools:visibility="invisible" />
 
         <Button
-            android:id="@+id/dodaj"
+            android:id="@+id/buttonDodaj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dodaj cale rury" />
+            android:text="dodaj cale rury"
+            tools:visibility="invisible" />
 
         <Space
             android:layout_width="match_parent"

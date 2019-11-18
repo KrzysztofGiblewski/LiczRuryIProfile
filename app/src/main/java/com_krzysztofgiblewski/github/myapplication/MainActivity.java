@@ -9,17 +9,25 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button button = (Button) findViewById(R.id.buttonLiczIleRury);
+        Button dodaj = (Button) findViewById(R.id.buttonDodaj);
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                TextView sumaCalychTekst = (TextView) findViewById(R.id.wynikSumaWszystkich);
+                TextView ostatniWynikTekst = (TextView) findViewById(R.id.wynikSumyCalych);
+
 
                 int dlugoscOdcinka = 0;
                 int dlugoscRury = 0;
@@ -54,10 +62,13 @@ public class MainActivity extends AppCompatActivity {
                         int dlugoscOdpaduZJednejRury = rury.dlugoscOdpaduZJednejRury;// ile zostaje z rurki po odcieciu calych odcinków
                         int dlugoscOdpaduOstatniej = rury.dlugoscOdpaduOstatniej;// pozostała długość z ostatniej rury
 
+
                         if (dlugoscOdcinka <= dlugoscRury) { //zeby rura byla na pewno dluzsza od pozadanego odcinka
                             textView4.setText("Całych rur o długości " + dlugoscRury + " cm potrzeba " + iloscCalychRur + " sztuk");
                             textView5.setText("z jednej rury wychodzi " + iloscOdcinkowZCalejRury + " kawałków o długości "
                                     + dlugoscOdcinka + "cm " + "i  " + dlugoscOdpaduZJednejRury + "cm odpadu z karzdej całej rury");
+                            ostatniWynikTekst.setText(iloscCalychRur + "");
+
 
                             if (dlugoscOdpaduOstatniej < dlugoscRury) {
                                 textView6.setText("z ostatniej rury dostajemy " + rury.iloscKawalkowZOstatniej + " kawałków a z napoczętej rury zostaje " + dlugoscOdpaduOstatniej + " cm");
@@ -70,10 +81,29 @@ public class MainActivity extends AppCompatActivity {
                             textView5.setText("bo taki kawałek sie nie zmiesci");
                             textView6.setText(":)");
                         }
+
                     }
+
             }
 
 
+        });
+        dodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TextView sumaCalychTekst = (TextView) findViewById(R.id.wynikSumaWszystkich);
+                TextView ostatniWynikTekst = (TextView) findViewById(R.id.wynikSumyCalych);
+
+//                sumaCalychTekst.setText((ostatniWynikTekst.getText().toString())+(sumaCalychTekst.getText().toString()));
+
+                int ostatniWynikInt = Integer.valueOf(ostatniWynikTekst.getText().toString().trim());
+                int sumaCalychRur = Integer.valueOf(sumaCalychTekst.getText().toString().trim());
+                sumaCalychRur += ostatniWynikInt;
+                ostatniWynikTekst.setText(0 + "");
+                sumaCalychTekst.setText(sumaCalychRur + "");
+
+            }
         });
     }
 
