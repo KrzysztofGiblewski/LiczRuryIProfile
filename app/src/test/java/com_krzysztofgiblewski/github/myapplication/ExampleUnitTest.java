@@ -16,8 +16,9 @@ public class ExampleUnitTest {
 
     @Test
     public void intLiczbaRur() {
+        Rury rury =new Rury();
         rury.liczRure(100, 25, 5);
-        int oczekiwanyWynik = 3;
+        int oczekiwanyWynik = 2;
         int wynik = rury.iloscCalychRur;
         assertEquals(oczekiwanyWynik, wynik);
 
